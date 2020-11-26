@@ -1,5 +1,7 @@
 package com.roylin.rpc.client.proxy;
 
+import com.roylin.rpc.common.RpcRequest;
+
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
@@ -19,6 +21,14 @@ public class ClientInvocationHandler<T> implements InvocationHandler {
     }
 
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        RpcRequest rpcRequest=new RpcRequest();
+        rpcRequest.setArgs(args);
+        rpcRequest.setMethod(method.getName());
+
+
+
+
+
         return null;
     }
 }
