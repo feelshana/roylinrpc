@@ -1,5 +1,7 @@
 package com.roylin.rpc.client.proxy;
 
+import com.roylin.rpc.client.connection.ConnectionManager;
+import com.roylin.rpc.client.connection.RpcConnection;
 import com.roylin.rpc.common.RpcRequest;
 
 import java.lang.reflect.InvocationHandler;
@@ -24,6 +26,8 @@ public class ClientInvocationHandler<T> implements InvocationHandler {
         RpcRequest rpcRequest=new RpcRequest();
         rpcRequest.setArgs(args);
         rpcRequest.setMethod(method.getName());
+
+        RpcConnection rpcConnection= ConnectionManager.getInstance().routeConnection();
 
 
 
